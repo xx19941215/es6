@@ -37,3 +37,21 @@
 //     let a = 123;
 //     var a = 123;
 // }
+//5.es6的块级作用域
+// function f1() {
+//     let n = 5;
+//     if(true){
+//         let n = 10;
+//     }
+//     console.log(n);
+// }
+// f1();//5
+//6.ES6引入了块级作用域，明确允许在块级作用域之中声明函数。如果没有使用大括号，就会报错。
+// if(true) {
+//     function f() {
+//         console.log("hello");
+//     }
+//     f();
+// }
+
+
