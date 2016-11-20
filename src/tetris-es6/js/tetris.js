@@ -1,5 +1,5 @@
-window.$ = HTMLElement.prototype.$ = function(selector) {
-    return (this == window ? document : this).querySelectorAll(selector);
+window.$ = HTMLElement.prototype.$ = (selector) => {
+    return (this == undefined ? document : this).querySelectorAll(selector);
 };
 var tetris = {
     RN: 20, //行数
@@ -372,7 +372,6 @@ var tetris = {
         }
 
     }
-
 }
 
 tetris.init();
