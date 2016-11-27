@@ -29,20 +29,6 @@ var tetris = {
     SCORE: [0, 10, 50, 80, 200],
     score: 0, //当前总分
     lines: 0, //当前总行数
-    paintState: function() {
-        var img = new Image();
-        //要是当前游戏状态是GameOver
-        switch (this.state) {
-            case this.STATE_GAMEOVER:
-                img.src = this.IMG_GAMEOVER;
-                this.pg.appendChild(img);
-                break;
-            case this.STATE_PAUSE:
-                img.src = this.IMG_PAUSE;
-                this.pg.appendChild(img);
-                break;
-        }
-    },
     init: function() {
         this.pg = $(".playground")[0];
         this.currShape = this.randomShape();
@@ -55,7 +41,7 @@ var tetris = {
         this.lines = 0;
         this.state = 1;
         for (var i = 0; i < this.RN; this.wall[i++] = [])
-        var self = this;
+             var self = this;
         this.timer = setInterval(function() {
             //重绘
             self.paint();
@@ -96,6 +82,21 @@ var tetris = {
             }
         }
     },
+    paintState: function() {
+        var img = new Image();
+        //要是当前游戏状态是GameOver
+        switch (this.state) {
+            case this.STATE_GAMEOVER:
+                img.src = this.IMG_GAMEOVER;
+                this.pg.appendChild(img);
+                break;
+            case this.STATE_PAUSE:
+                img.src = this.IMG_PAUSE;
+                this.pg.appendChild(img);
+                break;
+        }
+    },
+
     gameOver: function() {
         this.state = this.STATE_GAMEOVER;
         clearInterval(this.timer);
